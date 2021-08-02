@@ -115,18 +115,21 @@
         minikube service list
 
 ----------------------------------------------------------------------------------------------------------------------
-* Distributing Chart
+* Packaging Chart
 // To package a chart into a versioned chart archive file.
 
         helm package hello-world-001
 
         Successfully packaged chart and saved it to: C:\Utils\DevOps\Containerisation\helm\hello-world-001-0.1.0.tgz
 ----------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------
-* Distributing Chart
-// To package a chart into a versioned chart archive file.
+* Helm Repo
+// Create index.yaml for chart repo:.
 
-        helm package hello-world-001
+        helm repo index hello-world-001/ --url https://github.com/ayhansevimli/helm-hello-world-001
+        
+// Push the chart to remote repo:.
+        
+        helm repo index hello-world-001/ --url https://github.com/ayhansevimli/helm-hello-world-001
 
 ----------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------
