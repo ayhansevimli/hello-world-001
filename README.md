@@ -2,12 +2,12 @@
 
         C:\Utils\DevOps\Containerisation\helm
 
-        helm create hello-world-001
+        helm create helm-hello-world-001
         
-        dir hello-world-001
+        dir helm-hello-world-001
 
 --------------------------------------------------------------------------------------------------        
-        Directory of C:\Utils\DevOps\Containerisation\helm\hello-world-001
+        Directory of C:\Utils\DevOps\Containerisation\helm\helm-hello-world-001
         
         02/08/2021  12:39    <DIR>          .
         02/08/2021  12:39    <DIR>          ..
@@ -29,20 +29,20 @@
 --------------------------------------------------------------------------------------------------
 * Verify that the chart is well-formed
         
-        helm lint ./hello-world-001
+        helm lint ./helm-hello-world-001
 
-        ==> Linting ./hello-world-001
+        ==> Linting ./helm-hello-world-001
         [INFO] Chart.yaml: icon is recommended
         1 chart(s) linted, 0 chart(s) failed
 --------------------------------------------------------------------------------------------------
 * Render chart templates locally and display the output.
         
-        helm template hello-world-001
+        helm template helm-hello-world-001
         
 --------------------------------------------------------------------------------------------------
 * Helm Install
         
-        helm install hello-world-001 ./hello-world-001
+        helm install helm-hello-world-001 ./helm-hello-world-001
 
 --------------------------------------------------------------------------------------------------
 * Check Installation
@@ -65,17 +65,17 @@
 
         minikube service list
 
-        minikube service hello-world-001
+        minikube service helm-hello-world-001
         
 ----------------------------------------------------------------------------------------------------------------------
 * Upgrades a release to a new version of a chart.
 
 //Before running this command let's change replica count to 5 into the values.yaml
 
-        helm upgrade hello-world-001 ./hello-world-001
+        helm upgrade helm-hello-world-001 ./helm-hello-world-001
         
         Release "hello-world-001" has been upgraded. Happy Helming!
-        NAME: hello-world-001
+        NAME: helm-hello-world-001
         LAST DEPLOYED: Mon Aug  2 13:13:07 2021
         NAMESPACE: default
         STATUS: deployed
@@ -84,7 +84,7 @@
 ----------------------------------------------------------------------------------------------------------------------
 * Helm Rollback
 
-        helm rollback hello-world-001 1
+        helm rollback helm-hello-world-001 1
         Rollback was a success! Happy Helming!
 
 ----------------------------------------------------------------------------------------------------------------------
@@ -96,7 +96,7 @@
 ----------------------------------------------------------------------------------------------------------------------
 * Uninstall chart & Cleanup
 
-        helm uninstall hello-world-001
+        helm uninstall helm-hello-world-001
         
         kubectl delete pvc --all
         
@@ -115,22 +115,3 @@
         minikube service list
 
 ----------------------------------------------------------------------------------------------------------------------
-* Packaging Chart
-// To package a chart into a versioned chart archive file.
-
-        helm package hello-world-001
-
-        Successfully packaged chart and saved it to: C:\Utils\DevOps\Containerisation\helm\hello-world-001-0.1.0.tgz
-----------------------------------------------------------------------------------------------------------------------
-* Helm Repo
-// Create index.yaml for chart repo:.
-
-        helm repo index hello-world-001/ --url https://github.com/ayhansevimli/helm-hello-world-001
-        
-// Push the chart to remote repo:.
-        
-        helm repo index hello-world-001/ --url https://github.com/ayhansevimli/helm-hello-world-001
-
-----------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------
-
